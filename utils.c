@@ -1,5 +1,9 @@
 # include "minitalk.h"
 
+void write_error(const char *message) {
+    write(STDERR_FILENO, message, strlen(message));
+}
+
 void Signal (int signo, void *handler, bool use_siginfo)
 {
           struct sigaction sa = {0};
@@ -18,7 +22,7 @@ void Signal (int signo, void *handler, bool use_siginfo)
           
           if (sigaction(signo, &sa, NULL) < 0)
           {
-                    perror("Sigaction handler setup failed");
+                    write_error("Sigaction handler setup failed\n");
                     exit(EXIT_FAILURE);
           }
 
@@ -30,7 +34,7 @@ void Kill (pid_t server_pid, int signo)
 {
           if (kill(server_pid, signo) < 0)
           {
-                    perror("Kill failed");
+                    write_error("Kill failed\n");
                     exit(EXIT_FAILURE);
           }
 }

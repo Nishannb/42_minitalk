@@ -41,11 +41,11 @@ int main (int ac, char **av)
 
           if (3 != ac)
           {
-                    fputs("Usage = ./client <PID> \"Message\"\n", stderr);
+                    write(STDERR_FILENO, "Usage = ./client <PID> <Message>\n", 33);
                     exit(EXIT_FAILURE);
           }
 
-          server_pid = atoi(av[1]);
+          server_pid = ft_atoi(av[1]); // can we use atoi or not ?
           message = av[2];
 
           Signal(SIGUSR1, ack_handler, false);

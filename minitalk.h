@@ -7,11 +7,13 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <string.h>
 
 #define READY  1
 #define BUSY  0
 
 void Signal (int signo, void *handler, bool use_siginfo);
 void Kill (pid_t server_pid, int signo);
+int	ft_atoi(const char *nptr);
 
 #endif

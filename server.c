@@ -49,7 +49,7 @@ int main (int ac, char **av)
 		return (EXIT_FAILURE);
 	}
 
-          printf("Server pid id: %d\n", getpid());
+          printf("Server pid id: %d\n", getpid()); // replace printf with ft_printf of your own
 
           Signal(SIGUSR1, handler, true);
           Signal(SIGUSR2, handler, true);
