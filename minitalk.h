@@ -8,10 +8,8 @@
 # include <stdbool.h>
 # include <limits.h>
 
-enum {
-          READY,
-          BUSY
-};
+#define READY  1
+#define BUSY  0
 
 void Signal (int signo, void *handler, bool use_siginfo);
 void Kill (pid_t server_pid, int signo);
