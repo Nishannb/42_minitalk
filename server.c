@@ -12,7 +12,7 @@ void handler (int signo, siginfo_t *info, void *more_info)
 
       // decoding the message
       if (SIGUSR1 == signo){
-          c |= (0b10000000 >> bit);
+          c |= (0x80 >> bit);
       }
       else if (SIGUSR2 == signo){
           c &= ~(0x80 >> bit);
